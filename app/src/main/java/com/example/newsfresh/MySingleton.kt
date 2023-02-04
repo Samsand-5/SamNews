@@ -1,4 +1,4 @@
-package com.example.newsfresh
+package com.example.SamNews
 
 import android.content.Context
 import com.android.volley.Request

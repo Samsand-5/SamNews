@@ -1,4 +1,4 @@
-package com.example.newsfresh
+package com.example.SamNews
 
 data class News(
     val title: String,
