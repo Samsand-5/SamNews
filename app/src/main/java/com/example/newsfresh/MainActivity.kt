@@ -9,7 +9,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.toolbox.JsonObjectRequest
-import com.example.newsfresh.*
 import kotlinx.android.synthetic.main.activity_main.*
 import org.json.JSONObject
 
@@ -28,12 +27,12 @@ class MainActivity : AppCompatActivity(), NewsItemClicked {
     }
 
     private fun fetchData() {
-        val url = "https://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=b3a51abb898d41ac8584930d4f30928e"
+        val url = "https://newsapi.org/v2/top-headlines?country=in&category=science&piKey=1f4a12d2698e432ea9cf18126dcc7acd"
         val jsonObjectRequest = JsonObjectRequest(
             Request.Method.GET,
             url,
             null,
-            Response.Listener {
+            {
                 val newsJsonArray = it.getJSONArray("articles")
                 val newsArray = ArrayList<News>()
                 for(i in 0 until newsJsonArray.length()) {
@@ -49,7 +48,7 @@ class MainActivity : AppCompatActivity(), NewsItemClicked {
 
                 mAdapter.updateNews(newsArray)
             },
-            Response.ErrorListener {
+            {
 
             }
         )
